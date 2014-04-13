@@ -1,0 +1,31 @@
+div{
+    color: black;
+}
+
+#header{
+height: 20px;
+background-color: black;
+color: white;
+padding: 5px 5px 5px 5px;
+}
+
+#footer{
+height: 20px;
+background-color: #f0f5f5;
+clear: both;
+}
+
+.left{
+height: 600px;
+width: 20%;
+background-color: #94B8B8;
+float: left;
+}
+
+.right{
+height: 600px;
+width: 80%;
+background-color: #B2CCCC;
+float: right;
+
+}
