@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 TEST</title>
+	</head>
+	<body>
+	<div>
+		<canvas id="test" width="500" height="375" style="border:1px solid #c3c3c3;"></canvas>
+		<script>
+			var c = document.getElementById("test");
+			var cxt = c.getContext("2d");
+			
+			for(var x = 0.5; x< 500; x += 10){
+				cxt.moveTo(x, 0);
+				cxt.lineTo(x, 375);
+			}
+			for(var y = 0.5; y < 375; y += 10){
+				cxt.moveTo(0, y);
+				cxt.lineTo(500, y);
+			}
+			cxt.strokeStyle = "#eee";
+			cxt.stroke();
+
+			cxt.beginPath();
+			cxt.moveTo(0, 40);
+			cxt.lineTo(240, 40);
+			cxt.moveTo(260, 40);
+			cxt.lineTo(500, 40);
+			cxt.moveTo(495, 35);
+			cxt.lineTo(500, 40);
+			cxt.lineTo(495, 45);
+
+			cxt.moveTo(60, 0);
+			cxt.lineTo(60, 153);
+			cxt.moveTo(60, 173);
+			cxt.lineTo(60, 375);
+			cxt.moveTo(55, 370);
+			cxt.lineTo(60, 375);
+			cxt.lineTo(65, 370);
+			cxt.strokeStyle = "#000";
+			cxt.stroke();
+
+			cxt.font="bold 12px sans-sefif";
+			cxt.fillText("x", 248, 43);
+			cxt.fillText("y", 58, 165);
+
+			cxt.textBaseline = "top";
+			cxt.fillText("(0, 0)", 8, 5);
+
+			cxt.textAlign = "right";
+			cxt.textBaseline = "bottom";
+			cxt.fillText("(500, 375)", 492, 370);
+
+			cxt.fillRect(0, 0, 3, 3);
+			cxt.fillRect(497, 372, 3, 3);
+		</script>
+		</div>
+
+		<div>
+			<canvas id="dd" width="600" height="225" style="border:1px solid #c3c3c3;"></canvas>
+			<script>
+				var d = document.getElementById("dd");
+				var cxt = d.getContext("2d");
+
+				var my_gradient = cxt.createLinearGradient(0, 0, 600, 225);
+				my_gradient.addColorStop(0, "black");
+				my_gradient.addColorStop(1, "white");
+
+				cxt.fillStyle = my_gradient;
+				cxt.fillRect(0, 0, 600, 225);
+
+			</script>
+		</div>
+
+		<div>
+			<img id = "cat" src ="https://pbs.twimg.com/profile_images/378800000606281941/0e7e643dd2ede2a9d00759baa6078846.jpeg" alt ="cat cat" width "256" height = "256">
+			<canvas id="cc" width="256" height="256" style="border:1px solid #c3c3c3;"></canvas>
+			<script>
+			window.onload = function(){
+				var e = document.getElementById("cc");
+				var a = e.getContext("2d");
+				var cat = document.getElementById("cat");
+				a.drawImage(cat, 0, 0);
+			};
+			</script>
+		</div>
+
+		<div>
+			<canvas id="ddd" width="500" height="375" style="border:1px solid #c3c3c3;"></canvas>
+			<script>
+			
+			var f = document.getElementById("ddd");
+			var aaa = f.getContext("2d");
+			var cat = new Image();
+			cat.src = "https://pbs.twimg.com/profile_images/378800000606281941/0e7e643dd2ede2a9d00759baa6078846.jpeg";
+			cat.onload = function(){
+				for(var x = 0; x < 500; x +=50){
+					for(var y = 0; y < 375; y +=50){
+						aaa.drawImage(cat, x, y, 50, 50);
+					}
+				}
+			};
+			</script>
+		</div>
+
+	</body>
+</html>
