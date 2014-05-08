@@ -1,0 +1,40 @@
+div{
+    color: black;
+    font-family: helvetica;
+
+}
+
+#header{
+height: 50px;
+background-color: white;
+text-align: center;
+font-size: 12px;
+font-weight: bold;
+}
+
+#footer{
+height: 20px;
+width: 770px;
+background-color: #fffff;
+padding: 30px 0px 15px 0px;
+clear: both;
+text-align: right;
+font-size: 12px;
+}
+
+.left{
+height: 500px;
+width: 200px;
+padding-left: 70px;
+background-color: white;
+float: left;
+text-align: left;
+font-size: 12px;
+}
+
+.right{
+height: 500px;
+width: 100% - 300px;
+background-color: white;
+float: left;
+}
