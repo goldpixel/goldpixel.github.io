@@ -53,8 +53,8 @@ function zoomout(){
      zm = 0;
    }
   getMap();
-} 
-  
+}
+
 /*
 var img = new Image();
 img.src = "jn.png";
