@@ -4,8 +4,8 @@ var ctx = my_canvas.getContext("2d");
 var lat = "37.575674";
 var lng = "126.976713";
 var zm = 15;
-var mapURL;
-var mapImg;
+var mapURL = "http://maps.google.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=" + zm +"&size=640x480&sensor=false&key=AIzaSyCBoXkz703lOWgwS-pfwtKoOnb6eWiFnUc";
+var mapImg.src = mapURL;
 
 
 function getMap(){
