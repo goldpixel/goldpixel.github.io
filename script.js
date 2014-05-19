@@ -1,3 +1,5 @@
+
+
 var my_canvas = document.getElementById("canvas");
 var ctx = my_canvas.getContext("2d");
 
@@ -53,6 +55,8 @@ function zoomout(){
    }
   getMap();
 }
+
+
 
 /*
 var img = new Image();
