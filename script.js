@@ -1,5 +1,3 @@
-
-
 var my_canvas = document.getElementById("canvas");
 var ctx = my_canvas.getContext("2d");
 
@@ -9,6 +7,12 @@ var zm = 15;
 var mapURL;
 var mapImg  = new Image();
 
+$(document).ready(function(){
+
+  var csv = './wifi.csv';
+  var data = $.csv.toArrays(csv);
+  console.log(data);
+});
 
 function getMap(){
   mapURL = "http://maps.google.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=" + zm +"&size=640x480&sensor=false&key=AIzaSyCBoXkz703lOWgwS-pfwtKoOnb6eWiFnUc";
@@ -33,9 +37,6 @@ function getMap(){
     }
   }
 }
-
-
-getMap(); 
 
 
 document.getElementById("in").onclick=function(){zoomin()};
