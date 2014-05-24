@@ -8,14 +8,74 @@ var mapURL;
 var mapImg  = new Image();
 
 $(document).ready(function(){
+  $.get('wifi.csv', function (data) {
+        var output = $.csv.toArrays(data);
 
-  var csv = './wifi.csv';
-  var data = $.csv.toArrays(csv);
-  console.log(data);
+        for (var i = 3; i < output.length; i++) {
+          //console.log("row #" + i);
+          //console.log(output[i][3]);
+          //console.log(output[i][4]);
+
+          var myxml = new XMLHttpRequest();
+          myxml.open("GET", "http://apis.daum.net/local/geo/transcoord?apikey=DAUM_LOCAL_DEMO_APIKEY&x=198745.83&y=452106.866&fromCoord=KTM&toCoord=WGS84&output=xml", false);
+          myxml.send();
+          console.log(myxml.responseXML.xml);
+
+          //for (var j = 0; j < output[i].length; j++) {
+          //  console.log(output[i][j]);
+          //}
+        }
+  })
 });
 
+
+
+
+
+/*
+function getPoint(x, y) {
+  try {
+    URL text = new URL("http://apis.daum.net/local/geo/transcoord?apikey=DAUM_LOCAL_DEMO_APIKEY&x=" + x + "&y=" + y + "&fromCoord=KTM&toCoord=WGS84&output=xml");
+              
+    XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
+    XmlPullParser parser = parserCreator.newPullParser();
+      
+    int parserEvent = parser.getEventType();
+    Log.i("getPoint", x);
+    Log.i("getPoint", y);
+    parser.setInput(text.openStream(), null);
+          
+    while (parserEvent != XmlPullParser.END_DOCUMENT) {
+      switch(parserEvent) {
+        case XmlPullParser.START_TAG:
+          String tag = parser.getName();
+            if (tag.compareTo("result") == 0) {
+              x = parser.getAttributeValue(null, "x");
+              y = parser.getAttributeValue(null, "y");
+ 
+              double dx = Double.parseDouble(x);
+              double dy = Double.parseDouble(y);
+              
+              x = String.valueOf(Math.round(dx*1000000));
+              y = String.valueOf(Math.round(dy*1000000));
+              Log.i("getPoint", x);
+              Log.i("getPoint", y);
+ 
+              gp = new GeoPoint(Integer.parseInt(y), Integer.parseInt(x));
+            }
+              break;
+      }
+      parserEvent = parser.next();
+    }
+      
+  } catch (Exception e) {
+     Log.e("Net", "Error in network call", e);
+  }
+}
+*/
+
 function getMap(){
-  mapURL = "http://maps.google.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=" + zm +"&size=640x480&sensor=false&key=AIzaSyCBoXkz703lOWgwS-pfwtKoOnb6eWiFnUc";
+  mapURL = "http://maps.google.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=" + zm +"&size=640x480&sensor=false";
   mapImg.src = mapURL;
 
   mapImg.onload = function(){
@@ -36,8 +96,8 @@ function getMap(){
       ctx.fill();
     }
   }
+  console.log("getmap: " + zm);
 }
-
 
 document.getElementById("in").onclick=function(){zoomin()};
 document.getElementById("out").onclick=function(){zoomout()};
